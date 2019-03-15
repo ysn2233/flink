@@ -3,13 +3,18 @@ package org.apache.flink.streaming.connectors.fs;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.compress.*;
+import org.apache.hadoop.io.compress.CodecPool;
+import org.apache.hadoop.io.compress.CompressionCodec;
+import org.apache.hadoop.io.compress.CompressionCodecFactory;
+import org.apache.hadoop.io.compress.CompressionOutputStream;
+import org.apache.hadoop.io.compress.Compressor;
 
 import java.io.IOException;
 
 /**
- * A {@link Writer} that uses {@code toString()} on the input elements and writes them to
- *  * the output bucket file separated by newline and compress.
+ * A base class that compresses the input element and write them to the filesystem. Default serialization is to
+ * write events separates by newline.
+ * Extends the class and override write() to make custom writing
  * @param <T>
  */
 public class CompressionStringWriter<T> extends StreamWriterBase<T> implements Writer<T>{
@@ -60,10 +65,6 @@ public class CompressionStringWriter<T> extends StreamWriterBase<T> implements W
 		compressedOutputStream.write('\n');
 	}
 
-	/**
-	 * Duplicates the {@code Writer}. This is used to get one {@code Writer} for each
-	 * parallel instance of the sink.
-	 */
 	@Override
 	public CompressionStringWriter<T> duplicate() {
 		return new CompressionStringWriter<>(this);
