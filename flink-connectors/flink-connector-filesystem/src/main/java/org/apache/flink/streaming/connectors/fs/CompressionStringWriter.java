@@ -15,7 +15,6 @@ import java.io.IOException;
  * A base class that compresses the input element and write them to the filesystem. Default serialization is to
  * write events separates by newline.
  * Extends the class and override write() to make custom writing
- * @param <T>
  */
 public class CompressionStringWriter<T> extends StreamWriterBase<T> implements Writer<T>{
 
