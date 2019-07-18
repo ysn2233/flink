@@ -2,7 +2,7 @@
 title: "Hive兼容"
 is_beta: true
 nav-parent_id: tableapi
-nav-pos:9
+nav-pos: 9
 ---
 <!--
 Licensed to the Apache Software Foundation (ASF) under one
