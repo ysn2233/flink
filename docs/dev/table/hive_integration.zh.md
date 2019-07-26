@@ -43,7 +43,7 @@ Hive的元数据存储集成分为两个方面：
 
 2. 将Flink的元数据对象（例如tables, views和UDFs）持久化在Hive Metastore中。该功能正在开发之中，将会在`HiveCatalog`中被实现。
 
-对于 `HiveCatalog`的用法，详见[Catalogs]({{ site.baseurl }}/dev/table/catalog.html)
+对于 `HiveCatalog`的使用和配置法，详见[Catalogs]({{ site.baseurl }}/dev/table/catalog.html)
 
 
 Hive数据集成
@@ -54,8 +54,10 @@ Hive数据集成
 范例
 --------
 
-更完整的例子请详见[Hive Compatibility Example] ({{ site.baseurl }}/dev/table/hive_compatibility.html)
+更完整的使用Table API或者SQL语句的例子请详见[Hive Compatibility Example] ({{ site.baseurl }}/dev/table/hive_compatibility.html)
 
+问题报告
+---------------
 
 局限性和未来计划
 --------------------
